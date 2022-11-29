@@ -7,15 +7,20 @@
   */
 int check_cycle(listint_t *list)
 {
-	listint_t *knot, *p;
+	listint_t *fast, *slow;
 
-	knot = p = list;
+	fast = slow = list;
 	if (list == NULL)
 		return (0);
-	while (knot != NULL)
+
+
+	while ((fast != NULL) && (fast->next != NULL) && (slow != NULL))
 	{
-		while (p != NULL)
-		{
-			p = p->next;
-			if (p == knot)
-				return (1);
+		slow = slow->next;
+		fast = fast->next->next;
+		if ((slow == fast)
+			return (1);
+	}
+
+	return (0);
+}
