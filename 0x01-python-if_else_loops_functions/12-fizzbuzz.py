@@ -4,15 +4,10 @@ def fizzbuzz():
         r3 = i % 3
         r5 = i % 5
         if ((r3 == 0) and (r5 != 0)):
-            print("Fizz", end="")
+            print("Fizz", end=" ")
         elif ((r3 != 0) and (r5 == 0)):
-            print("Buzz", end="")
+            print("Buzz", end=" ")
         elif ((r3 == 0) and (r5 == 0)):
-            print("FizzBuzz", end="")
+            print("FizzBuzz", end=" ")
         else:
-            print(i, end="")
-
-        if (i != 100):
-            print(" ", end="")
-        else:
-            print("")
+            print(i, end=" ")
