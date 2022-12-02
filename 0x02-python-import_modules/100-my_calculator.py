@@ -9,13 +9,13 @@ if num_arg != 3:
 operator = sys.argv[2]
 a = sys.argv[1]
 b = sys.argv[3]
-if operator == "+":
+if operator == '+':
     print("{} + {} = {}".format(a, b, add(a, b)))
-elif operator == "-":
+elif operator == '-':
     print("{} - {} = {}".format(a, b, sub(a, b)))
-elif operator == "*":
+elif operator == '*':
     print("{} * {} = {}".format(a, b, mul(a, b)))
-elif operator == "/":
+elif operator == '/':
     print("{} / {} = {}".format(a, b, div(a, b)))
 else:
     print("Uknown operator. Available operators: +, -, *, and /")
