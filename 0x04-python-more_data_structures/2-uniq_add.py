@@ -8,7 +8,7 @@ def uniq_add(my_list=[]):
             if my_list[j] == my_list[i]:
                 seen = True
                 break
-        if seen == False:
+        if (not seen):
             uniq_sum += my_list[i]
 
     return uniq_sum
