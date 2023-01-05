@@ -16,6 +16,18 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __str__(self):
+        """Returns an informal and nicely printable string representation
+        of a Rectangle instance, filled with the '#' character."""
+        if self.__height == 0 or self.__width == 0:
+            return ""
+        rect_str = ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rect_str += "#"
+            rect_str += "\n"
+        return rect_str[:-1]
+
     @property
     def width(self):
         """gets the width of a Rectangle instance."""
