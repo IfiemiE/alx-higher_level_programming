@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 1-rectangle
+"""Module 2-rectangle
 Defines a Rectangle class.
 """
 
@@ -54,7 +54,7 @@ class Rectangle:
         Returns:
             Area of the the rectangle
         """
-        return self.__width * self.__height
+        return (self.__width * self.__height)
     def perimeter(self):
         """Calculates the perimeter of a Rectangle instance
         Returns:
