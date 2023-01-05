@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 3-rectangle
+"""Module 5-rectangle
 Defines a Rectangle class.
 """
 
@@ -16,6 +16,10 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __del__(self):
+        """Deletes a Rectangle instance."""
+        print("Bye rectangle...")
+
     def __str__(self):
         """Returns an informal and nicely printable string representation
         of a Rectangle instance, filled with the '#' character."""
@@ -27,6 +31,12 @@ class Rectangle:
                 rect_str += "#"
             rect_str += "\n"
         return rect_str[:-1]
+
+    def __repr__(self):
+        """Return a string representation of a Rectangle instance
+        that is able to recreate a new instance by using eval()
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     @property
     def width(self):
