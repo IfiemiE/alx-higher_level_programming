@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 6-rectangle
+"""Module 7-rectangle
 Defines a Rectangle class.
 """
 
@@ -9,7 +9,9 @@ class Rectangle:
     Attributes:
         number_of_instances: number of Rectangle instances,
         increments with every creation, decrements with every deletion
+        print_symbol: character for __str__ (string rep of a Rectangle)
         """
+    print_symbol = "#"
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
@@ -35,7 +37,7 @@ class Rectangle:
         rect_str = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                rect_str += "#"
+                rec_str += str(self.print_symbol)
             rect_str += "\n"
         return rect_str[:-1]
 
@@ -94,3 +96,22 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Finds the biggest Rectangle based on the area
+        Args:
+            rect_1: Rectangle instance
+            rect_2: Rectangle instance different from rect_1
+        Returns:
+            The instance with the biggest area,
+            or rect_1 if both rectangles have the same area
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() == rect_2.area() or rect_1.area() > rect_2.area():
+            return rect_1
+        if rect_1.area() < rect_2.area():
+            return rect_2
