@@ -14,6 +14,11 @@ if (isNaN(process.argv[2]) || isNaN(process.argv[3])) {
     }
   }
   let secMax = arrNum[2];
+  let k = 2;
+  while ((secMax === maxNum) && (k < arrNum.length)) {
+    secMax = arrNum[k];
+    k++;
+  }
   for (let i = 2; i < arrNum.length; i++) {
     if ((arrNum[i] > secMax) && (arrNum[i] !== maxNum)) {
       const swap = secMax;
