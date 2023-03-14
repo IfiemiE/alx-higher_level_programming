@@ -5,7 +5,7 @@ if (isNaN(numx)) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < numx; i++) {
-    stars = '';
+    let stars = '';
     for (let j = 0; j < numx; j++) {
       stars += 'X';
     }
