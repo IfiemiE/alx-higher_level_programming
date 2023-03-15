@@ -2,7 +2,7 @@
 
 class Rectangle {
   // An empty class
-  constructor () {}
+  // constructor () {}
 }
 
 module.exports = Rectangle;
