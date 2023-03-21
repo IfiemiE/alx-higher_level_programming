@@ -19,16 +19,12 @@ if __name__ == "__main__":
                             port = 3306)
 
     dbCursor = myDb.cursor()
-    cities = dbCursor.execute('SELECT * FROM cities ORDER BY id')
+    cities = dbCursor.execute('SELECT c.id, c.name, s.name\
+                                FROM cities As c\
+                                INNER JOIN states as s\
+                                ON c.state_id = s.id\
+                                ORDER BY c.id')
     view_cities = dbCursor.fetchall()
-    states =  dbCursor.execute('SELECT * FROM states')
-    view_states = dbCursor.fetchall()
     myDb.close()
-    for city_id, state_id, city in view_cities:
-        for first, second in view_states:
-            if state_id == first:
-                state = second
-                data = (city_id, city, state)
-                break
-
-        print (data)
+    for v in view_cities:
+        print (v)
