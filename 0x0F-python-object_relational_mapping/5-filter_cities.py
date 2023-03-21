@@ -27,9 +27,13 @@ if __name__ == '__main__':
     psswd = sys.argv[2]
     dbase = sys.argv[3]
     ns = sys.argv[4]
+    alarm = 0
     for p in range(len(ns)):
-        if (ns[p] == ';'):
+        if (ns[p] == ';') and (p != len(ns)):
+            alarm = 1
+        if (ns[p] != ' ') and alarm == 1:
             ns = None
+            break
     if ns != None:
         myDb = MySQLdb.connect(host = 'localhost',
                                 user = usr,
