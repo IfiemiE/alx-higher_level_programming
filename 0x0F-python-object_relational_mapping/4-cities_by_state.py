@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     dbCursor = myDb.cursor()
     cities = dbCursor.execute('SELECT c.id, c.name, s.name\
-                                FROM cities As c\
+                                FROM cities AS c\
                                 INNER JOIN states as s\
                                 ON c.state_id = s.id\
                                 ORDER BY c.id')
