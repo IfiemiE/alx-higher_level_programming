@@ -13,24 +13,21 @@ if __name__ == "__main__":
     psswd = sys.argv[2]
     dbase = sys.argv[3]
     ns = sys.argv[4]
-    if ns[0] == '"':
-        ns = ns[1:]
-    if ns[-1] == '"':
-        ns = ns[:-1]
     for p in range(len(ns)):
         if (ns[p] == ';'):
-            ns = ns[:(p - 1)]
+            ns = None
             break
-    myDb = MySQLdb.connect(host='localhost',
-                           port=3306,
-                           user=usr,
-                           password=psswd,
-                           db=dbase)
+    if ns is not None:
+        myDb = MySQLdb.connect(host='localhost',
+                               port=3306,
+                               user=usr,
+                               password=psswd,
+                               db=dbase)
 
-    dbCursor = myDb.cursor()
-    query = "SELECT * FROM states WHERE name = '{}'".format(ns)
-    result = dbCursor.execute(query)
-    view = dbCursor.fetchall()
-    myDb.close()
-    for i in view:
-        print(i)
+        dbCursor = myDb.cursor()
+        query = "SELECT * FROM states WHERE name = '{}'".format(ns)
+        result = dbCursor.execute(query)
+        view = dbCursor.fetchall()
+        myDb.close()
+        for i in view:
+            print(i)
