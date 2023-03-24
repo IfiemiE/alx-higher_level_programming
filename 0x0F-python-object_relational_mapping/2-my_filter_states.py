@@ -13,11 +13,11 @@ if __name__ == "__main__":
     psswd = sys.argv[2]
     dbase = sys.argv[3]
     ns = sys.argv[4]
-    myDb = MySQLdb.connect(host = 'localhost',
-                            user = usr,
-                            password = psswd,
-                            db = dbase,
-                            port = 3306)
+    myDb = MySQLdb.connect(host='localhost',
+                           port=3306,
+                           user=usr,
+                           password=psswd,
+                           db=dbase)
 
     dbCursor = myDb.cursor()
     query = "SELECT * FROM states WHERE name = '{}'".format(ns)
