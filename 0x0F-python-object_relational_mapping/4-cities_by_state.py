@@ -25,6 +25,5 @@ if __name__ == "__main__":
                                 WHERE c.state_id = s.id\
                                 ORDER BY c.id')
     view_cities = dbCursor.fetchall()
-    myDb.close()
     for v in view_cities:
         print (v)
