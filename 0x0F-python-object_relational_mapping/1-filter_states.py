@@ -12,11 +12,8 @@ if __name__ == "__main__":
     usr = sys.argv[1]
     psswd = sys.argv[2]
     dbase = sys.argv[3]
-    myDb = MySQLdb.connect(host = 'localhost',
-                            user = usr,
-                            password = psswd,
-                            db = dbase,
-                            port = 3306)
+    myDb = MySQLdb.connect(host='localhost', port=3306,
+                           user=usr, password=psswd, db=dbase)
 
     dbCursor = myDb.cursor()
     result = dbCursor.execute('SELECT * FROM states GROUP BY id')
