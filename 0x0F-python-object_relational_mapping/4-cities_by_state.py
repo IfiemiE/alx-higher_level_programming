@@ -13,16 +13,16 @@ if __name__ == "__main__":
     psswd = sys.argv[2]
     dbase = sys.argv[3]
     myDb = MySQLdb.connect(host = 'localhost',
+                            port = 3306,
                             user = usr,
                             password = psswd,
-                            db = dbase,
-                            port = 3306)
+                            db = dbase)
 
     dbCursor = myDb.cursor()
     cities = dbCursor.execute('SELECT c.id, c.name, s.name\
                                 FROM cities AS c\
                                 INNER JOIN states as s\
-                                ON c.state_id = s.id\
+                                WHERE c.state_id = s.id\
                                 ORDER BY c.id')
     view_cities = dbCursor.fetchall()
     myDb.close()
