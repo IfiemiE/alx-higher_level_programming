@@ -12,10 +12,13 @@ if __name__ == "__main__":
     usr = sys.argv[1]
     psswd = sys.argv[2]
     dbase = sys.argv[3]
-    stat = sys.argv[4]
-    for i in stat:
-        if i == ';':
-            stat = None
+    if len(sys.argv) > 4:
+        stat = sys.argv[4]
+        for i in stat:
+            if i == ';':
+                stat = None
+    else:
+        stat = None
     if stat is not None:
         myDb = MySQLdb.connect(host='localhost',
                                port=3306,
@@ -39,3 +42,6 @@ if __name__ == "__main__":
                     print(view_cities[i][0])
                 else:
                     print(view_cities[i][0], end=", ")
+
+    else:
+        print(" ")
