@@ -21,11 +21,11 @@ if __name__ == "__main__":
         if (ns[p] == ';'):
             ns = ns[:(p - 1)]
             break
-    myDb = MySQLdb.connect(host = 'localhost',
-                            user = usr,
-                            password = psswd,
-                            db = dbase,
-                            port = 3306)
+    myDb = MySQLdb.connect(host='localhost',
+                           port=3306,
+                           user=usr,
+                           password=psswd,
+                           db=dbase)
 
     dbCursor = myDb.cursor()
     query = "SELECT * FROM states WHERE name = '{}'".format(ns)
