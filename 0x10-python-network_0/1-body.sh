@@ -1,3 +1,3 @@
 #!/bin/bash
 # Sends a GET request to the input URL and display the only body of response
-curl -s --fail $1
+curl -s --fail -L $1
